@@ -1,0 +1,17 @@
+{
+  "name": "lesson-1",
+  "version": "1.0.0",
+  "description": "// cài đặt gói npm vào dự án",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
