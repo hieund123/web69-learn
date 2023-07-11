@@ -1,5 +1,9 @@
 import express from 'express';
 import RootRouterV1 from './routers/v1/index.js';
+import dotEnv from 'dotenv';
+dotEnv.config();
+
+export const mapApi = `${process.env.API_DB_HOST_DEV}:${process.env.API_DB_HOST_DEV_PORT}`;
 
 const app = express();
 app.use(express.json());
