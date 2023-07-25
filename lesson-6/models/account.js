@@ -13,6 +13,10 @@ const accountSchema = new mongoose.Schema({
     salt: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        default: "CUSTOMER"
     }
 });
 
