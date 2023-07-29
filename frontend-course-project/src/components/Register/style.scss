@@ -1,0 +1,27 @@
+.container-register {
+
+    margin-top: 200px;
+
+    form {
+        margin: auto;
+
+        .flex {
+            .ant-form-item-control-input {
+                .ant-form-item-control-input-content {
+                    display: flex;
+                    gap: 50%;
+                }
+            }
+        }
+
+        .btn-redirect-register {
+            width: 100px;
+            padding: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #d67b7b;
+            color: white;
+            background-color: #d67b7b;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.layout-auth-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .part {
+        flex: 1;
+
+        &.part-left {
+            img {
+                max-width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

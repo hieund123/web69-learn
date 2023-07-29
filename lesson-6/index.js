@@ -117,7 +117,7 @@ app.get('/api/v1/user-info', (req, res, next) => {
     try {
         const userInfo = await UserInfoModel.findOne({
             accountId: req.user.accountId
-        });
+        }).populate('accountId');
         if (!userInfo) throw new Error('Không tồn tại thông tin người dùng!');
 
         resClientData(res, 200, userInfo);
