@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { useSelectGlobalState } from '../../utils/hooks';
+import { NameGlobalState } from '../../store/context';
 import './style.scss';
 
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
 
 const Login = () => {
     const navigate = useNavigate();
+    const userInfo = useSelectGlobalState(NameGlobalState['userInfo']);
+    const onFinish = (values) => {
+        const payload = {
+            body: values
+        }
+        userInfo.query(payload);
+    };
+    useEffect(() => {
+        if (userInfo.message) {
+            alert(userInfo.message);
+        }
+        if (userInfo.success) {
+            navigate('/');
+        } else {
+            setTimeout(() => {
+                userInfo.clear();
+            }, 1000);
+        }
+    }, [userInfo])
+
     return (
         <div className="container-login">
             <h2 className='text-center'>Đăng nhập</h2>
@@ -23,7 +42,7 @@ const Login = () => {
             >
                 <Form.Item
                     label="Username"
-                    name="username"
+                    name="userName"
                     rules={[{ required: true, message: 'username là trường bắt buộc!' }]}
                 >
                     <Input />

@@ -1,11 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import CombineRouter from './routers/index.js';
 
 const app = express();
 mongoose.connect('mongodb://127.0.0.1:27017/social-media');
 
 app.use(express.json());
+app.use(cors({
+    origin: '*'
+}))
 app.use('/api/v1', CombineRouter);
 app.get('', (_, res) => {
     res.send({

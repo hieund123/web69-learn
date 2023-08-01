@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import './style.scss';
+import { useSelectGlobalState } from '../../utils/hooks';
+import { NameGlobalState } from '../../store/context';
 
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
 
 const Register = () => {
     const navigate = useNavigate();
+    const userRegister = useSelectGlobalState(NameGlobalState['userRegister']);
+
+    const onFinish = (values) => {
+        const payload = {
+            body: {
+                ...values
+            }
+        }
+        userRegister.query(payload);
+    };
+    useEffect(() => {
+        if (userRegister.success) {
+            alert(userRegister.message);
+            setTimeout(() => {
+                window.location.assign('http://localhost:3001/auth/login');
+            }, 1500);
+        }
+    }, [userRegister])
     return (
         <div className="container-register">
             <h2 className='text-center'>Đăng ký</h2>
@@ -23,7 +40,7 @@ const Register = () => {
             >
                 <Form.Item
                     label="Username"
-                    name="username"
+                    name="userName"
                     rules={[{ required: true, message: 'username là trường bắt buộc!' }]}
                 >
                     <Input />
