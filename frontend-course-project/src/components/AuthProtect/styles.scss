@@ -1,0 +1,10 @@
+.auth-protect {
+    width: 100%;
+    height: 100%;
+
+    &.isCheckingAuth {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

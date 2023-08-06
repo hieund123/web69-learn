@@ -20,11 +20,8 @@ const Login = () => {
             alert(userInfo.message);
         }
         if (userInfo.success) {
+            localStorage.setItem('accessToken', userInfo.data.accessToken);
             navigate('/');
-        } else {
-            setTimeout(() => {
-                userInfo.clear();
-            }, 1000);
         }
     }, [userInfo])
 

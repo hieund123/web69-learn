@@ -19,11 +19,20 @@ const useCreateStateContext = (nameState, queryFunction) => {
             message: '',
         })
     }
+    const insertData = (data) => {
+        setState({
+            data,
+            message: 'Thành công',
+            success: true,
+            isLoading: false
+        });
+    }
     return {
         [nameState]: {
             ...state,
             query,
-            clear
+            clear,
+            insertData
         }
     }
 };

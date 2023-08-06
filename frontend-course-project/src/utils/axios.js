@@ -15,6 +15,7 @@ const createRequest = async (apiEnpoint, payload, method) => {
      * 
      * // pending
      * params
+     * headers?
      * }
      */
     return axios({
@@ -22,6 +23,9 @@ const createRequest = async (apiEnpoint, payload, method) => {
         url: apiEnpoint,
         data: payload.body,
         params: payload['query'],
+        headers: payload.headers ? {
+            ...payload.headers
+        } : {}
     }).then((rs) => rs.data).catch((error) => error.response.data);
 }
 

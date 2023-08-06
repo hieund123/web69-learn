@@ -1,9 +1,11 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 import imgIntro from '../../assets/imgs/intro.png';
 import './style.scss';
 
 const LayoutAuth = () => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) return <Navigate to={'/'} />
     return (
         <div className="layout-auth-container">
             <div className="part part-left">

@@ -1,0 +1,22 @@
+.container-layout-main {
+    .nav-bar {
+        .menu-customize {
+            justify-content: flex-end !important;
+
+            li {
+                &:first-child {
+                    margin-right: auto;
+
+                    &.ant-menu-item-selected {
+                        color: black;
+                        border-bottom-width: 0 !important;
+
+                        &::after {
+                            border-bottom-width: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
