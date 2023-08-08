@@ -11,7 +11,7 @@ const middlewares = {
             };
             next();
         } catch (error) {
-            resClientData(res, 403, null);
+            resClientData(res, 403, error.message);
         }
     }
 };

@@ -15,8 +15,10 @@ import Home from './components/Home';
 import Message from './components/Message';
 import Noti from './components/Noti';
 import Me from './components/Me';
-import './index.css';
 import { mapKeyWithRouter } from './global';
+import MeLayout from './layouts/me';
+import MyInfo from './components/MyInfo';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,7 +30,9 @@ root.render(
           <Route path={mapKeyWithRouter['HOME']} element={<Home />} />
           <Route path={mapKeyWithRouter['MESSAGE']} element={<Message />} />
           <Route path={mapKeyWithRouter['NOTI']} element={<Noti />} />
-          <Route path={mapKeyWithRouter['ME']} element={<Me />} />
+          <Route path={mapKeyWithRouter['ME']} element={<MeLayout />} >
+            <Route path={mapKeyWithRouter['MYINFO']} element={<MyInfo />} />
+          </Route>
         </Route>
         {/* For un authorization */}
         <Route path='/auth' element={<LayoutAuth />}>

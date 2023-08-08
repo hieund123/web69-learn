@@ -3,5 +3,6 @@ export const mapKeyWithRouter = {
     HOME: '',
     MESSAGE: '/message',
     NOTI: '/noti',
-    ME: '/ME'
+    ME: '/me',
+    MYINFO: '/me/my-info'
 }
